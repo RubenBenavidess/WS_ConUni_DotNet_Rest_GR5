@@ -1,6 +1,0 @@
-@WS_ConUni_Java_GR5_HostAddress = http://localhost:5119
-
-GET {{WS_ConUni_Java_GR5_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

@@ -1,5 +1,5 @@
-@host = https://localhost:7001
-@token = PEGA_AQUI_TOKEN
+@host = http://localhost:5119
+@token = TW9uc3Rlcjo2MzkxMjgyNDkyNDUzNTA1Nzc6NDIwMw==
 
 ### Login
 POST {{host}}/api/seguridad/login
@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
   "usuario": "Monster",
-  "contrasena": "Monster19"
+  "contrasena": "Monster10"
 }
 
 ### Conversión de longitud (requiere token)
