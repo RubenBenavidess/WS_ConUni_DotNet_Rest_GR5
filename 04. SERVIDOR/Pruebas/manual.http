@@ -1,5 +1,5 @@
-@host = http://localhost:5119
-@token = TW9uc3Rlcjo2MzkxMjgyNDkyNDUzNTA1Nzc6NDIwMw==
+@host = http://localhost:9095
+@token = TW9uc3Rlcjo2MzkxMjgzMjg1MTc1OTk4ODg6MjY1Ng==
 
 ### Login
 POST {{host}}/api/seguridad/login
@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
   "usuario": "Monster",
-  "contrasena": "Monster10"
+  "contrasena": "Monster9"
 }
 
 ### Conversión de longitud (requiere token)

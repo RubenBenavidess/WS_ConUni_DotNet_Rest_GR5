@@ -58,3 +58,7 @@ nunit-*.xml
 
 # VS
 .vs/
+
+
+# Publish
+Properties/PublishProfiles/

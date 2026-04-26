@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="WS_ConUni_DotNet_Rest_GR5.Tests\WS_ConUni_DotNet_Rest_GR5.Tests.csproj" />
+    <Compile Remove="WS_ConUni_DotNet_Rest_GR5.Tests\**" />
+    <Content Remove="WS_ConUni_DotNet_Rest_GR5.Tests\**" />
+    <EmbeddedResource Remove="WS_ConUni_DotNet_Rest_GR5.Tests\**" />
+    <None Remove="WS_ConUni_DotNet_Rest_GR5.Tests\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="WS_ConUni_DotNet_Rest_GR5.Tests\**\*.cs" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.6" />
   </ItemGroup>
 
