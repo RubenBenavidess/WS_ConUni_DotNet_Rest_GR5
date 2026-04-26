@@ -1,0 +1,54 @@
+@host = https://localhost:7001
+@token = PEGA_AQUI_TOKEN
+
+### Login
+POST {{host}}/api/seguridad/login
+Content-Type: application/json
+
+{
+  "usuario": "Monster",
+  "contrasena": "Monster19"
+}
+
+### Conversión de longitud (requiere token)
+POST {{host}}/api/conversiones/longitud
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "valor": 100,
+  "unidadOrigen": "Centimetro",
+  "unidadDestino": "Metro"
+}
+
+### Conversión de temperatura (requiere token)
+POST {{host}}/api/conversiones/temperatura
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "valor": 25,
+  "unidadOrigen": "Celsius",
+  "unidadDestino": "Fahrenheit"
+}
+
+### Conversión de masa (requiere token)
+POST {{host}}/api/conversiones/masa
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "valor": 2,
+  "unidadOrigen": "Kilogramo",
+  "unidadDestino": "Onza"
+}
+
+### Cambiar contraseña (requiere token)
+POST {{host}}/api/seguridad/cambiar-contrasena
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "contrasenaActual": "Monster9",
+  "nuevaContrasena": "Monster10"
+}
