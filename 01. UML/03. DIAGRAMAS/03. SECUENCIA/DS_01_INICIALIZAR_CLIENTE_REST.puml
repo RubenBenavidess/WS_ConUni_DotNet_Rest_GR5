@@ -1,0 +1,42 @@
+@startuml
+title "DS_01_INICIALIZAR_CLIENTE_REST"
+
+participant "APLICACION\n(Main)" as Main
+participant "CLIENTE_REST" as ClienteRest
+participant "API_ASPNET_CORE" as ApiNet
+participant "SEGURIDAD_CONTROLLER" as SeguridadController
+participant "AUTH_SERVICE" as AuthService
+participant "TOKEN_PROVIDER" as TokenProvider
+
+Main -> ClienteRest: 1. crear cliente REST
+activate ClienteRest
+
+ClienteRest -> ClienteRest: 2. configurar BaseAddress HTTPS del servidor
+ClienteRest -> ApiNet: 3. POST /api/seguridad/login\n{ usuario, contrasena }
+activate ApiNet
+
+ApiNet -> SeguridadController: 4. enrutar a Login(request)
+activate SeguridadController
+
+SeguridadController -> AuthService: 5. Autenticar(usuario, contrasena)
+activate AuthService
+
+AuthService -> TokenProvider: 6. GenerarToken(usuario)
+activate TokenProvider
+TokenProvider --> AuthService: 7. token generado
+deactivate TokenProvider
+
+AuthService -> AuthService: 8. registrar token activo (8 horas)
+AuthService --> SeguridadController: 9. token valido
+deactivate AuthService
+
+SeguridadController --> ApiNet: 10. 200 OK { token }
+deactivate SeguridadController
+ApiNet --> ClienteRest: 11. respuesta login
+deactivate ApiNet
+
+ClienteRest -> ClienteRest: 12. guardar token y preparar Authorization: Bearer
+ClienteRest --> Main: 13. cliente inicializado y autenticado
+deactivate ClienteRest
+
+@enduml
