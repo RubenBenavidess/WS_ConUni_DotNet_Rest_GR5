@@ -14,7 +14,7 @@ builder.Services.AddAuthentication("BearerToken")
 builder.Services.AddAuthorization();
 
 builder.Services.AddSingleton<TokenProvider>();
-builder.Services.AddSingleton<AuthService>();
+builder.Services.AddSingleton<ServicioAutenticacion>();
 
 builder.Services.AddSingleton<ConversorLongitud>();
 builder.Services.AddSingleton<ConversorTemperatura>();

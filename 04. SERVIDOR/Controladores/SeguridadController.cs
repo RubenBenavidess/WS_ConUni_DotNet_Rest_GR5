@@ -8,18 +8,18 @@ namespace WS_ConUni_DotNet_Rest_GR5.Controladores;
 [Route("api/seguridad")]
 public class SeguridadController : ControllerBase
 {
-    private readonly AuthService _authService;
+    private readonly ServicioAutenticacion _servicioAutenticacion;
 
-    public SeguridadController(AuthService authService)
+    public SeguridadController(ServicioAutenticacion servicioAutenticacion)
     {
-        _authService = authService;
+        _servicioAutenticacion = servicioAutenticacion;
     }
 
     [AllowAnonymous]
     [HttpPost("login")]
     public ActionResult<LoginResponse> Login([FromBody] LoginRequest request)
     {
-        var token = _authService.Autenticar(request.Usuario, request.Contrasena);
+        var token = _servicioAutenticacion.Autenticar(request.Usuario, request.Contrasena);
         if (token is null)
         {
             return Unauthorized("Credenciales inválidas");
@@ -32,7 +32,7 @@ public class SeguridadController : ControllerBase
     [HttpPost("cambiar-contrasena")]
     public IActionResult CambiarContrasena([FromBody] CambiarContrasenaRequest request)
     {
-        var cambioExitoso = _authService.CambiarContrasena(request.ContrasenaActual, request.NuevaContrasena);
+        var cambioExitoso = _servicioAutenticacion.CambiarContrasena(request.ContrasenaActual, request.NuevaContrasena);
         if (!cambioExitoso)
         {
             return BadRequest("No se pudo cambiar la contraseña");

@@ -7,14 +7,14 @@ namespace WS_ConUni_DotNet_Rest_GR5.Seguridad;
 
 public class BearerTokenAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
 {
-    private readonly AuthService _authService;
+    private readonly ServicioAutenticacion _authService;
 
     public BearerTokenAuthenticationHandler(
         IOptionsMonitor<AuthenticationSchemeOptions> options,
         ILoggerFactory logger,
         UrlEncoder encoder,
         ISystemClock clock,
-        AuthService authService)
+        ServicioAutenticacion authService)
         : base(options, logger, encoder, clock)
     {
         _authService = authService;

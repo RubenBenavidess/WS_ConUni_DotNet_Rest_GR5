@@ -2,7 +2,7 @@ using System.Collections.Concurrent;
 
 namespace WS_ConUni_DotNet_Rest_GR5.Seguridad;
 
-public class AuthService
+public class ServicioAutenticacion
 {
     private const string UsuarioPermitido = "Monster";
     private readonly TokenProvider _tokenProvider;
@@ -10,7 +10,7 @@ public class AuthService
     private readonly object _lock = new();
     private string _contrasenaActual = "Monster9";
 
-    public AuthService(TokenProvider tokenProvider)
+    public ServicioAutenticacion(TokenProvider tokenProvider)
     {
         _tokenProvider = tokenProvider;
     }
